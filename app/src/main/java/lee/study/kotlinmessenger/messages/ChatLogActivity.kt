@@ -77,6 +77,8 @@ class ChatLogActivity : AppCompatActivity() {
                         adapter.add(ChatToItem(chatMessage.text,currentUser!!))
                     }
                 }
+
+                recyclerview_chat_log.scrollToPosition(adapter.itemCount-1)
             }
 
             override fun onCancelled(p0: DatabaseError) {
@@ -121,6 +123,12 @@ class ChatLogActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Log.d(TAG,"Saved our chat message: ${toReference.key}")
             }
+        val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-message/$fromId/$toId")
+        latestMessageRef.setValue(chatMessage)
+
+        val latestMessageToRef = FirebaseDatabase.getInstance().getReference("/latest-message/$toId/$fromId")
+        latestMessageToRef.setValue(chatMessage)
+
     }
 
 }
