@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/back_to_register_text_view"
-        android:layout_width="0dp"
-        android:layout_height="15dp"
+        android:layout_width="402dp"
+        android:layout_height="25dp"
         android:layout_marginTop="12dp"
         android:text="back to register"
         android:textColor="@android:color/white"

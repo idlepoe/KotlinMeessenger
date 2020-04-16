@@ -1,4 +1,4 @@
-package lee.study.kotlinmessenger
+package lee.study.kotlinmessenger.registerlogin
 
 import android.app.Activity
 import android.content.Intent
@@ -13,6 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_register.*
+import lee.study.kotlinmessenger.R
+import lee.study.kotlinmessenger.messages.LatestMessagesActivity
+import lee.study.kotlinmessenger.models.User
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -29,7 +32,8 @@ class RegisterActivity : AppCompatActivity() {
             Log.d("Register","Try to show login activity")
 
             //launch the login activity
-            val intent = Intent(this,LoginActivity::class.java)
+            val intent = Intent(this,
+                LoginActivity::class.java)
             startActivity(intent)
         }
 
@@ -129,6 +133,3 @@ class RegisterActivity : AppCompatActivity() {
     }
 }
 
-class User(val uid:String, val username:String, val profileImageUrl:String){
-    constructor():this("","","")
-}
